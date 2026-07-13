@@ -29,7 +29,7 @@ Las tareas podrán encontrarse en uno de estos estados:
 - [x] Crear README.md y .gitignore.
 - [x] Definir el MVP inicial.
 - [x] Documentar el primer bloque del proyecto.
-- [ ] Definir la arquitectura inicial.
+- [x] Definir la arquitectura inicial.
 - [ ] Establecer las convenciones del proyecto.
 
 ## Fase 1 - Fundamentos del backend
