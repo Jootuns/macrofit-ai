@@ -36,15 +36,19 @@ Las tareas podrán encontrarse en uno de estos estados:
 
 Prioridad: alta.
 
-- [ ] Entender qué es un backend.
-- [ ] Entender qué es una API REST.
-- [ ] Crear un entorno virtual de Python.
-- [ ] Instalar FastAPI.
-- [ ] Instalar el servidor Uvicorn.
-- [ ] Crear la estructura inicial del backend.
-- [ ] Crear el primer endpoint.
-- [ ] Ejecutar la API localmente.
-- [ ] Consultar la documentación automática de Swagger.
+## Fase 1 - Fundamentos del backend
+
+Prioridad: alta.
+
+- [x] Entender qué es un backend.
+- [x] Entender qué es una API REST.
+- [x] Crear un entorno virtual de Python.
+- [x] Instalar FastAPI.
+- [x] Instalar el servidor Uvicorn.
+- [x] Crear la estructura inicial del backend.
+- [x] Crear el primer endpoint.
+- [x] Ejecutar la API localmente.
+- [x] Consultar la documentación automática de Swagger.
 - [ ] Añadir pruebas básicas.
 - [ ] Documentar cómo ejecutar el backend.
 
