@@ -30,11 +30,7 @@ Las tareas podrán encontrarse en uno de estos estados:
 - [x] Definir el MVP inicial.
 - [x] Documentar el primer bloque del proyecto.
 - [x] Definir la arquitectura inicial.
-- [ ] Establecer las convenciones del proyecto.
-
-## Fase 1 - Fundamentos del backend
-
-Prioridad: alta.
+- [x] Establecer las convenciones del proyecto.
 
 ## Fase 1 - Fundamentos del backend
 
@@ -49,6 +45,12 @@ Prioridad: alta.
 - [x] Crear el primer endpoint.
 - [x] Ejecutar la API localmente.
 - [x] Consultar la documentación automática de Swagger.
+- [x] Separar el backend por capas.
+- [x] Crear routers independientes.
+- [x] Crear services para la lógica de negocio.
+- [x] Crear repositories para acceso a datos.
+- [x] Crear schemas para validación de datos.
+- [x] Organizar el proyecto mediante paquetes Python (__init__.py).
 - [ ] Añadir pruebas básicas.
 - [ ] Documentar cómo ejecutar el backend.
 
