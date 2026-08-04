@@ -1,5 +1,14 @@
-def get_user_by_email(email: str):
-    return {
-        "email": email,
-        "password": "123456"
-    }
+from sqlalchemy.orm import Session
+
+from backend.app.models.user import User
+
+
+def get_user_by_email(
+    db: Session,
+    email: str,
+):
+    return (
+        db.query(User)
+        .filter(User.email == email)
+        .first()
+    )
