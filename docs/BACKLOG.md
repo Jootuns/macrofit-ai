@@ -62,12 +62,22 @@ Prioridad: alta.
 
 Prioridad: alta.
 
-- [ ] Instalar y configurar PostgreSQL.
-- [ ] Diseñar el modelo entidad-relación.
-- [ ] Configurar SQLAlchemy.
+- [x] Instalar y configurar PostgreSQL.
+- [x] Crear la base de datos macrofit_ai.
+- [x] Crear un usuario específico para la aplicación.
+- [x] Proteger las credenciales mediante variables de entorno.
+- [x] Crear una plantilla pública .env.example.
+- [x] Diseñar el modelo entidad-relación inicial.
+- [x] Configurar SQLAlchemy.
+- [x] Instalar el driver psycopg2.
+- [x] Crear la base declarativa de SQLAlchemy.
+- [x] Configurar el engine y las sesiones de base de datos.
+- [x] Comprobar la conexión entre SQLAlchemy y PostgreSQL.
+- [x] Crear el modelo de usuarios.
+- [x] Crear el modelo de perfiles.
+- [x] Crear las tablas users y profiles en PostgreSQL.
+- [x] Implementar la relación entre usuarios y perfiles.
 - [ ] Configurar migraciones con Alembic.
-- [ ] Crear la tabla de usuarios.
-- [ ] Crear la tabla de perfiles.
 - [ ] Crear la tabla de seguimiento de peso.
 - [ ] Crear la tabla de objetivos nutricionales.
 - [ ] Crear la tabla de alimentos.
@@ -273,7 +283,7 @@ Prioridad: posterior al MVP.
 
 Prioridad: alta antes del lanzamiento.
 
-- [ ] Configurar variables de entorno.
+- [ ] Configurar variables de entorno de producción.
 - [ ] Crear pruebas automáticas.
 - [ ] Configurar integración continua.
 - [ ] Crear contenedores con Docker.
