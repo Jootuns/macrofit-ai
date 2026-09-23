@@ -93,16 +93,19 @@ Prioridad: alta.
 
 Prioridad: alta.
 
-- [ ] Crear el registro de usuarios.
+- [x] Crear el registro de usuarios.
 - [ ] Crear el flujo de completar perfil tras el registro.
-- [ ] Proteger las contraseñas mediante hash.
+- [x] Proteger las contraseñas mediante hash.
+- [x] Evitar el registro de correos duplicados.
+- [x] Crear un schema seguro para devolver usuarios.
+- [x] Comprobar la persistencia real del usuario en PostgreSQL.
 - [ ] Crear el inicio de sesión.
-- [ ] Implementar autenticación mediante JWT.
+- [ ] Implementar autenticación mediante tokens JWT.
 - [ ] Crear el cierre de sesión.
 - [ ] Consultar el perfil.
 - [ ] Modificar el perfil.
 - [ ] Configurar idioma preferido.
-- [ ] Validar los datos enviados por el usuario.
+- [x] Validar los datos enviados por el usuario.
 - [ ] Añadir pruebas de autenticación.
 
 ---
