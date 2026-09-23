@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 
 
-from backend.app.api.auth import router as auth_router
-from backend.app.api.health import router as health_router
+from app.api.auth import router as auth_router
+from app.api.health import router as health_router
 
 app = FastAPI(
     title="MacroFit AI API",
