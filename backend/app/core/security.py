@@ -24,20 +24,38 @@ def verify_password(
 
 
 def create_access_token(user_id: int) -> str:
-    # Calcula la fecha de expiración del token en UTC.
     expires_at = datetime.now(timezone.utc) + timedelta(
         minutes=settings.jwt_expire_minutes
     )
 
-    # Información que se incluirá dentro del token.
     payload = {
         "sub": str(user_id),
         "exp": expires_at,
     }
 
-    # Firma y devuelve el token JWT.
     return jwt.encode(
         payload,
         settings.jwt_secret_key,
         algorithm=settings.jwt_algorithm,
     )
+
+
+def decode_access_token(token: str) -> int | None:
+    try:
+        # Verifica la firma y la expiración.
+        payload = jwt.decode(
+            token,
+            settings.jwt_secret_key,
+            algorithms=[settings.jwt_algorithm],
+        )
+
+        # Extrae el identificador guardado en "sub".
+        user_id = payload.get("sub")
+
+        if user_id is None:
+            return None
+
+        return int(user_id)
+
+    except (jwt.InvalidTokenError, ValueError, TypeError):
+        return None

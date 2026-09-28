@@ -104,14 +104,18 @@ Prioridad: alta.
 - [x] Implementar autenticación mediante tokens JWT.
 - [x] Configurar la expiración de los tokens.
 - [x] Proteger la clave JWT mediante variables de entorno.
-- [ ] Validar y decodificar tokens JWT recibidos.
-- [ ] Crear el endpoint protegido GET /users/me.
+- [x] Validar y decodificar tokens JWT recibidos.
+- [x] Extraer el usuario autenticado desde el token.
+- [x] Crear una dependencia reutilizable de autenticación.
+- [x] Buscar usuarios por identificador en PostgreSQL.
+- [x] Crear el endpoint protegido GET /users/me.
+- [x] Rechazar tokens inválidos, manipulados o caducados.
 - [ ] Crear el cierre de sesión.
 - [ ] Consultar el perfil.
 - [ ] Modificar el perfil.
 - [ ] Configurar idioma preferido.
 - [x] Validar los datos enviados por el usuario.
-- [ ] Añadir pruebas de autenticación.
+- [ ] Añadir pruebas automatizadas de autenticación.
 
 ---
 
