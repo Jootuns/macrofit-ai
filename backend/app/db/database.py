@@ -10,6 +10,10 @@ class Settings(BaseSettings):
     db_user: str
     db_password: str
 
+    jwt_secret_key: str
+    jwt_algorithm: str
+    jwt_expire_minutes: int
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8",
