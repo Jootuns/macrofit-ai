@@ -99,8 +99,13 @@ Prioridad: alta.
 - [x] Evitar el registro de correos duplicados.
 - [x] Crear un schema seguro para devolver usuarios.
 - [x] Comprobar la persistencia real del usuario en PostgreSQL.
-- [ ] Crear el inicio de sesión.
-- [ ] Implementar autenticación mediante tokens JWT.
+- [x] Crear el inicio de sesión.
+- [x] Verificar las contraseñas mediante Argon2id.
+- [x] Implementar autenticación mediante tokens JWT.
+- [x] Configurar la expiración de los tokens.
+- [x] Proteger la clave JWT mediante variables de entorno.
+- [ ] Validar y decodificar tokens JWT recibidos.
+- [ ] Crear el endpoint protegido GET /users/me.
 - [ ] Crear el cierre de sesión.
 - [ ] Consultar el perfil.
 - [ ] Modificar el perfil.
