@@ -75,9 +75,13 @@ Prioridad: alta.
 - [x] Comprobar la conexión entre SQLAlchemy y PostgreSQL.
 - [x] Crear el modelo de usuarios.
 - [x] Crear el modelo de perfiles.
-- [x] Crear las tablas users y profiles en PostgreSQL.
 - [x] Implementar la relación entre usuarios y perfiles.
-- [ ] Configurar migraciones con Alembic.
+- [x] Configurar migraciones con Alembic.
+- [x] Conectar Alembic con la configuración segura de la aplicación.
+- [x] Crear la migración inicial del esquema.
+- [x] Crear las tablas users y profiles mediante Alembic.
+- [x] Comprobar los ciclos upgrade y downgrade.
+- [x] Comprobar la sincronización entre modelos y PostgreSQL.
 - [ ] Crear la tabla de seguimiento de peso.
 - [ ] Crear la tabla de objetivos nutricionales.
 - [ ] Crear la tabla de alimentos.
