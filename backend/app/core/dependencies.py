@@ -27,6 +27,7 @@ def get_current_user(
             detail="Token inválido o caducado.",
         )
 
+
     # Busca en PostgreSQL al usuario identificado por el JWT.
     user = get_user_by_id(
         db=db,
@@ -38,5 +39,11 @@ def get_current_user(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Usuario no encontrado.",
         )
+
+    if not user.is_active:
+        raise HTTPException(
+            status_code=status.HTTP_401_UNAUTHORIZED,
+            detail="Usuario desactivado.",
+            )
 
     return user

@@ -1,20 +1,13 @@
 from datetime import date
+from typing import TYPE_CHECKING
 
 from sqlalchemy import Date, Float, ForeignKey, Integer, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
-    from app.models.profile import Profile
-
-from sqlalchemy.orm import (
-    Mapped,
-    mapped_column,
-    relationship,
-)
+    from app.models.user import User
 
 
 class Profile(Base):
@@ -60,6 +53,4 @@ class Profile(Base):
         nullable=False,
     )
 
-    user: Mapped["User"] = relationship(
-    back_populates="profile"
-    )
+    user: Mapped["User"] = relationship(back_populates="user")

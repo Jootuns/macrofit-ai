@@ -1,20 +1,13 @@
-from datetime import datetime
+from datetime import datetime, timezone
+from typing import TYPE_CHECKING
 
 from sqlalchemy import Boolean, DateTime, Integer, String
-from sqlalchemy.orm import Mapped, mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db.base import Base
 
-from typing import TYPE_CHECKING
-
 if TYPE_CHECKING:
     from app.models.profile import Profile
-
-from sqlalchemy.orm import (
-    Mapped,
-    mapped_column,
-    relationship,
-)
 
 
 class User(Base):
@@ -52,14 +45,10 @@ class User(Base):
     )
 
     created_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
+        DateTime, default=lambda: datetime.now(timezone.utc)
     )
-
     updated_at: Mapped[datetime] = mapped_column(
-        DateTime,
-        default=datetime.utcnow,
-        onupdate=datetime.utcnow,
+        DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc)
     )
 
     profile: Mapped["Profile"] = relationship(
