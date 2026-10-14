@@ -51,9 +51,7 @@ class User(Base):
         DateTime, default=lambda: datetime.now(timezone.utc), onupdate=lambda: datetime.now(timezone.utc)
     )
 
-    profile: Mapped["Profile"] = relationship(
-    back_populates="user"
-    )
+    profile: Mapped["Profile"] = relationship(back_populates="user")
 
     def __repr__(self):
         return f"User(email='{self.email}')"

@@ -28,6 +28,7 @@ aporte.
 - SQLAlchemy necesita `default=lambda: ...` para callables, no `default=funcion`.
 - Sin Alembic, cada cambio en los modelos es manual y propenso a errores.
 - El orden de validaciones importa: no puedes verificar `is_active` antes de buscar al usuario en la DB.
+- La indentación inconsistente en relationships de SQLAlchemy confunde: mantener en una sola línea o con indentación correcta.
 
 ## Próximos pasos
 
