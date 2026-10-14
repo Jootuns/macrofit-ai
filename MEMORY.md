@@ -31,6 +31,8 @@ aporte.
 - La indentación inconsistente en relationships de SQLAlchemy confunde: mantener en una sola línea o con indentación correcta.
 - `logger.warning()` y `raise HTTPException()` son independientes: primero se registra, luego se lanza el error.
 - Nunca registrar datos sensibles en logs: contraseñas, tokens, números de tarjeta.
+- En llamadas a funciones, no poner espacio alrededor del `=`: `status_code=500`.
+- Estructura lógica de main.py: imports → logger → app → middleware → handlers → rutas.
 
 ## Próximos pasos
 
