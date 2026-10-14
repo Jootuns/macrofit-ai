@@ -31,9 +31,9 @@ aporte.
 
 ## Próximos pasos
 
-1. Arreglos técnicos pendientes: CORS, logging, error handling, health check real.
+1. Arreglos técnicos pendientes: logging, error handling, health check real.
 2. Completar Fase 3: endpoint de perfil (GET/PATCH), logout.
 3. Configurar Alembic antes de añadir más modelos.
 4. Tests básicos de auth con pytest.
-5. Docker: docker-compose.yml con PostgreSQL + backend.
+5. Docker: docker-compose.yml + Dockerfile.
 6. Empezar Fase 4: cálculo de calorías y macros (Mifflin-St Jeor).

@@ -81,6 +81,28 @@ JWT_EXPIRE_MINUTES=30
 - `docs/BACKLOG.md` — lista completa de tareas por fases
 - `docs/MVP.md` — alcance del MVP y criterios de éxito
 
+## Reglas de dominio / trampas conocidas
+
+- **Orden de validaciones en auth:** token → user_id → buscar en DB → existe → está activo. Cada paso depende del anterior.
+- **Imports circulares:** se resuelven con `if TYPE_CHECKING:` para que solo se importen en type checking, no en runtime.
+- **SQLAlchemy callables:** usar `default=lambda: ...` en vez de `default=funcion` (si no, se evalúa una sola vez).
+- **CORS:** en desarrollo usar `allow_origins=["*"]`, en producción restringir al dominio real.
+- **JWT sin refresh token:** limitación conocida del MVP. El token sigue válido hasta que expire, incluso si el usuario cierra sesión.
+
+## Forma de trabajar
+
+- Cambios pequeños y enfocados; no reescribir lo que ya funciona.
+- Seguir la arquitectura en capas: `api → services → repositories → models`.
+- Al terminar, resumir qué se cambió y cualquier decisión que deba revisarse.
+- Actualizar `MEMORY.md` al terminar cada tarea.
+
+## Verificación
+
+- Antes de dar un cambio por terminado, ejecutar: `python -c "from app.main import app; print('OK')"`
+- Si hay tests: `pytest` (cuando existan)
+- Probar los endpoints con Swagger UI en `http://localhost:8000/docs`
+- Verificar que el backend arranca sin errores: `uvicorn app.main:app --reload`
+
 ## Memoria
 
 - Al empezar, lee `MEMORY.md` para conocer el estado del proyecto y las decisiones tomadas.
@@ -91,4 +113,6 @@ JWT_EXPIRE_MINUTES=30
 
 ## Límites
 
-- **Siempre:** actualizar `MEMORY.md` al terminar cada tarea.
+- **Siempre:** actualizar `MEMORY.md` al terminar cada tarea, seguir la arquitectura en capas, verificar los cambios antes de darlos por terminado.
+- **Pregunta antes:** añadir dependencias nuevas, crear archivos nuevos, cambiar el formato de datos, modificar la estructura de la base de datos.
+- **Nunca:** llamar repositories directamente desde `api/`, exponer secretos (claves, tokens) en el código, hacer commits a `main` directamente, dejar `MEMORY.md` desactualizado.
