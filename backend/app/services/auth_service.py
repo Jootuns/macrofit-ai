@@ -1,3 +1,7 @@
+import logging 
+
+logger = logging.getLogger(__name__)
+
 from fastapi import HTTPException, status
 from sqlalchemy.orm import Session
 
@@ -34,6 +38,7 @@ def register_user(
         password_hash=hashed_password,
     )
 
+    logger.info(f"Usuario registrado: {data.email}")
     return new_user
 
 
@@ -59,6 +64,7 @@ def login_user(
     )
 
     if not password_is_valid:
+        logger.warning(f"Login fallido para email: {data.email}")
         raise HTTPException(
             status_code=status.HTTP_401_UNAUTHORIZED,
             detail="Correo electrónico o contraseña incorrectos.",
