@@ -8,7 +8,8 @@ aporte.
 - Backend en Fase 3 de 14: auth (registro, login, JWT) funcionando.
 - Modelos User + Profile creados y sincronizados con PostgreSQL.
 - Arquitectura en capas: api → services → repositories → models.
-- Check de `is_active` añadido en `get_current_user` (dependencies.py).
+- Check de `is_active`, CORS, health check, logging y error handling global implementados.
+- Validación de contraseñas con @field_validator (mínimo 8 caracteres, mayúscula y número).
 - Frontend (React Native/Expo) no iniciado.
 - Sin tests, sin Docker, sin Alembic, sin CI/CD todavía.
 
