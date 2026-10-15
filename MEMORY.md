@@ -34,6 +34,8 @@ aporte.
 - Nunca registrar datos sensibles en logs: contraseñas, tokens, números de tarjeta.
 - En llamadas a funciones, no poner espacio alrededor del `=`: `status_code=500`.
 - Estructura lógica de main.py: imports → logger → app → middleware → handlers → rutas.
+- No dejar espacios al final de líneas (trailing whitespace).
+- La indentación en funciones de varias líneas debe ser consistente.
 
 ## Próximos pasos
 

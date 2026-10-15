@@ -53,7 +53,7 @@ class User(Base):
 
     profile: Mapped["Profile"] = relationship(back_populates="user")
 
-    def __repr__(self):
+    def __repr__(self) -> str:
         return f"User(email='{self.email}')"
 
     
