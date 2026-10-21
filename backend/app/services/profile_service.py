@@ -27,3 +27,16 @@ def update_profile(
     db.commit()
     db.refresh(profile)
     return profile
+
+
+def create_profile(
+    db: Session,
+    user_id: int,
+    data: dict,
+) -> Profile:
+    # Crea un perfil nuevo para el usuario
+    profile = Profile(user_id=user_id, **data)
+    db.add(profile)
+    db.commit()
+    db.refresh(profile)
+    return profile

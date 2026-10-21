@@ -27,3 +27,13 @@ class ProfileUpdate(BaseModel):
     current_weight_kg: float | None = Field(None, gt=0, lt=500)
     goal: str | None = Field(None, max_length=50)
     activity_level: str | None = Field(None, max_length=50)
+
+
+# Datos para crear el perfil (todos obligatorios)
+class ProfileCreate(BaseModel):
+    birth_date: date
+    biological_sex: str = Field(max_length=20)
+    height_cm: float = Field(gt=0, lt=300)
+    current_weight_kg: float = Field(gt=0, lt=500)
+    goal: str = Field(max_length=50)
+    activity_level: str = Field(max_length=50)

@@ -53,4 +53,4 @@ class Profile(Base):
         nullable=False,
     )
 
-    user: Mapped["User"] = relationship(back_populates="user")
+    user: Mapped["User"] = relationship(back_populates="profile")
