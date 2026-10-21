@@ -6,6 +6,7 @@ aporte.
 ## Estado actual
 
 - Backend en Fase 3 de 14: auth (registro, login, JWT) funcionando.
+- Endpoint de perfil: GET /users/me/profile y PATCH /users/me/profile.
 - Modelos User + Profile creados y sincronizados con PostgreSQL.
 - Arquitectura en capas: api → services → repositories → models.
 - Check de `is_active`, CORS, health check, logging y error handling global implementados.
@@ -36,6 +37,9 @@ aporte.
 - Estructura lógica de main.py: imports → logger → app → middleware → handlers → rutas.
 - No dejar espacios al final de líneas (trailing whitespace).
 - La indentación en funciones de varias líneas debe ser consistente.
+- `Session` se importa de `sqlalchemy.orm`, NO de `sqlalchemy`.
+- En PEP 8 van 2 líneas en blanco entre funciones a nivel de módulo.
+- Los comentarios siempre llevan un espacio después del `#`.
 
 ## Próximos pasos
 
