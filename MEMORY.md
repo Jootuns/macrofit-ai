@@ -6,10 +6,11 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 
 - Backend en Fase 3 de 14: auth (registro, login, JWT) funcionando.
 - Perfil completo: GET, POST (crear) y PATCH /users/me/profile.
+- Tests (pytest + TestClient): auth y perfil cubiertos; DB de test separada (`macrofit_ai_test`) con `create_all/drop_all` por test.
 - Arquitectura en capas: api → services → repositories → models.
 - CORS, health check real, logging y error handling global implementados.
 - Validación de contraseñas con @field_validator.
-- Sin tests, Docker, Alembic ni CI/CD todavía (siguiente: tests).
+- Sin Docker, Alembic ni CI/CD todavía (siguiente: Alembic o logout).
 
 ## Decisiones (y por qué)
 
@@ -29,15 +30,15 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 - Orden en auth: token → user_id → buscar → existe → activo.
 - PEP 8: 2 líneas entre funciones, espacio tras `#`, sin trailing whitespace.
 - Probar endpoints con uvicorn real, no solo con import checks.
+- Tests: DB separada + fixtures que crean/borran esquema por test; override de `get_db`; no mezclar deps de dev en `requirements.txt`.
 - Nunca loguear datos sensibles.
 
 ## Próximos pasos
 
-1. Tests con pytest + httpx (fixtures con rollback, DB de test separada).
-2. Alembic (migraciones) antes de añadir más modelos.
-3. Endpoint de logout.
-4. Docker: docker-compose.yml + Dockerfile.
-5. Fase 4: cálculo de calorías/macros (Mifflin-St Jeor) con SDD.
+1. Alembic (migraciones) antes de añadir más modelos (reconstruir config, baseline).
+2. Endpoint de logout.
+3. Docker: docker-compose.yml + Dockerfile.
+4. Fase 4: cálculo de calorías/macros (Mifflin-St Jeor) con SDD.
 
 ## Herramientas configuradas
 
