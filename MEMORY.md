@@ -7,10 +7,9 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 - Backend en Fase 3 de 14: auth (registro, login, JWT) funcionando.
 - Perfil completo: GET, POST (crear) y PATCH /users/me/profile.
 - Tests (pytest + TestClient): auth y perfil cubiertos; DB de test separada (`macrofit_ai_test`) con `create_all/drop_all` por test.
+- Alembic configurado (`alembic.ini`, `migrations/env.py`) con baseline inicial (`b85f950f2c68`).
 - Arquitectura en capas: api → services → repositories → models.
-- CORS, health check real, logging y error handling global implementados.
-- Validación de contraseñas con @field_validator.
-- Sin Docker, Alembic ni CI/CD todavía (siguiente: Alembic o logout).
+- Sin Docker ni CI/CD todavía (siguiente: logout).
 
 ## Decisiones (y por qué)
 
@@ -31,14 +30,14 @@ Memoria del proyecto entre sesiones. Máximo ~50 líneas: resume o elimina lo qu
 - PEP 8: 2 líneas entre funciones, espacio tras `#`, sin trailing whitespace.
 - Probar endpoints con uvicorn real, no solo con import checks.
 - Tests: DB separada + fixtures que crean/borran esquema por test; override de `get_db`; no mezclar deps de dev en `requirements.txt`.
+- Alembic: `env.py` usa `settings`/`Base.metadata`; escapar `%` en URL (`%%`) por configparser; si DB ya tiene tablas, `stamp`/baseline con cuidado.
 - Nunca loguear datos sensibles.
 
 ## Próximos pasos
 
-1. Alembic (migraciones) antes de añadir más modelos (reconstruir config, baseline).
-2. Endpoint de logout.
-3. Docker: docker-compose.yml + Dockerfile.
-4. Fase 4: cálculo de calorías/macros (Mifflin-St Jeor) con SDD.
+1. Endpoint de logout (decidir enfoque JWT stateless: blacklist/cliente).
+2. Docker: docker-compose.yml + Dockerfile.
+3. Fase 4: cálculo de calorías/macros (Mifflin-St Jeor) con SDD.
 
 ## Herramientas configuradas
 
