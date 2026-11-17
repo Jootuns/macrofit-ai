@@ -22,7 +22,8 @@ TestingSessionLocal = sessionmaker(
 
 @pytest.fixture(scope="function")
 def db_session():
-    # Esquema limpio para cada test
+    # Crea y destruye el esquema en cada test: aislamiento total aunque falle.
+    # No usamos rollback simple porque los servicios hacen commit().
     Base.metadata.create_all(bind=engine_test)
     db = TestingSessionLocal()
     try:
@@ -34,7 +35,7 @@ def db_session():
 
 @pytest.fixture(scope="function")
 def client(db_session):
-    # Sobrescribe la dependencia get_db para usar la sesión de test
+    # Sobrescribe get_db para que la API use la sesión/DB de test
     def override_get_db():
         try:
             yield db_session

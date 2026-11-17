@@ -1,3 +1,5 @@
+"""Tests de integración de la API de perfil (endpoint + dependencias + DB de test)."""
+
 PROFILE_PAYLOAD = {
     "birth_date": "1995-05-15",
     "biological_sex": "male",
@@ -9,7 +11,7 @@ PROFILE_PAYLOAD = {
 
 
 def auth_headers(client, email="profile@example.com"):
-    # Registra y hace login para obtener un token válido
+    # Helper: crea un usuario aislado y devuelve cabeceras con un JWT válido
     client.post(
         "/auth/register",
         json={"name": "Profile User", "email": email, "password": "Password123"},
@@ -26,6 +28,7 @@ def test_get_profile_without_profile_returns_404(client):
     headers = auth_headers(client, email="noprof@example.com")
     response = client.get("/users/me/profile", headers=headers)
 
+    # El usuario está autenticado, pero aún no ha creado su perfil
     assert response.status_code == 404
 
 
@@ -46,6 +49,7 @@ def test_create_profile_twice_returns_409(client):
     assert first.status_code == 201
 
     second = client.post("/users/me/profile", json=PROFILE_PAYLOAD, headers=headers)
+    # Un usuario solo puede tener un perfil (409 Conflict)
     assert second.status_code == 409
 
 
@@ -71,7 +75,7 @@ def test_patch_profile_updates_only_sent_fields(client):
 
     assert response.status_code == 200
     data = response.json()
-    # Solo cambia height_cm; el resto se mantiene
+    # Solo cambia height_cm; el resto se mantiene (semántica de PATCH parcial)
     assert data["height_cm"] == 182.0
     assert data["goal"] == "gain_muscle"
     assert data["current_weight_kg"] == 75.0
